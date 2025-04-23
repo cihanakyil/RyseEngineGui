@@ -165,8 +165,7 @@ function ui.createIcon(params)
            --love.graphics.setScissor()
        end
    }
-
-
+   
 end
 
 
@@ -212,18 +211,21 @@ end
 function ui.createMenu(params) 
     params = params or {}
 
-    return {
+    return 
+    {
         x = params.x,
         y = params.y,
         width = params.width,
         height = params.height,
         name = params.name,
-        submenus = params.submenus ,
         open = params.open,
         disabled = params.disabled,
         menuFont = params.menuFont,
-        submenuFont = params.submenuFont,
         hovered = params.hovered,
+
+        submenus = params.submenus ,
+        submenuFont = params.submenus.submenuFont,
+        submenuHovered = params.submenus.submenuHovered,
         draw = function(self)
 
             if self.disabled then
@@ -248,31 +250,40 @@ function ui.createMenu(params)
 
             if self.submenus and self.open then
                 
+                local submenuWidth = self.submenus.width
+                local submenuHeight = self.submenus.height
                 love.graphics.setColor(0.3,0.3,0.3)
-                love.graphics.rectangle("fill",self.x+8,self.height,230,#(self.submenus)*25)
-
-                for i, submenu in ipairs(self.submenus) do
+                love.graphics.rectangle("fill",self.x+8,self.height,submenuWidth,#(self.submenus.menus)*25)
+             
+               
+                for i, submenu in ipairs(self.submenus.menus) do
                     local submenuY = self.height + (i-1) * 25 
-                    love.graphics.setColor(0.3,0.3,0.3)
-                    love.graphics.rectangle("fill",self.x, submenuY,230,25)
+                    submenu.x = self.x
+                    submenu.y = submenuY
+                    local hoveredIndex = self.submenus.submenuHoveredIndex
+                    
+                    if hoveredIndex == i then
+                        love.graphics.setColor(0.5,0.5,0.5)
+                    else
+                        love.graphics.setColor(0.3,0.3,0.3)
+                    end
+
+                    love.graphics.rectangle("fill",self.x , submenuY,submenuWidth+8,submenuHeight)
                     love.graphics.setColor(1,1,1)
                     love.graphics.setFont(self.submenuFont)
-                    love.graphics.printf(submenu.name,self.x+8,submenuY,230,"left")
+                    love.graphics.printf(submenu.name,self.x+8, submenuY + 4,submenuWidth,"left")
                     if submenu.shortcut then
-                        love.graphics.printf(submenu.shortcut,self.x+8,submenuY,230,"right")
-                    end
-                    
-
-
+                        love.graphics.printf(submenu.shortcut,self.x+8,submenuY,submenuWidth,"right")
+                    end               
+                       
                 end
 
             end
-        
-            
+
         end
 
     }
-    
+
 end
 
 function ui.createIconBarItems(params)

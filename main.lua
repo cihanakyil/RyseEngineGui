@@ -1,4 +1,5 @@
 ryseGui = require("ryseGui")
+menu = require("menu")
 
 local displayWidth , displayHeight = love.graphics.getWidth(), love.graphics.getHeight()
 
@@ -10,6 +11,8 @@ function love.load()
     font = love.graphics.newFont(12)
     love.graphics.setFont(font)
 
+
+    menu.load()
     
 end
 
@@ -17,19 +20,23 @@ function love.draw()
     ryseGui.load(displayWidth,displayHeight)
     ryseGui.draw(displayWidth,displayHeight)
 
+    menu.draw()
 
 end
 
 function love.update(dt)
     displayWidth , displayHeight = love.graphics.getWidth(), love.graphics.getHeight()
     ryseGui.update()
+
+    menu.update()
 end
 
 
 function love.mousepressed(x,y,button) 
-
+    
     if button == 1 then
-         ryseGui.mousepressed(x,y,button,displayWidth,displayHeight)
+        menu.mousepressed(x,y,button)
+        ryseGui.mousepressed(x,y,button)
     end
    
 end

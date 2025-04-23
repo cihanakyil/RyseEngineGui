@@ -1,46 +1,14 @@
 ui = require("ui")
 local ryseGui = {
-    containers = {},
-    boxes = {},
-    textboxes = {},
-    icons = {},
-    assetOptions={
-        optionCount = 0,
-    },
-    menuItems={},
-    iconBarItems = {},
-
-}
-
-
+                    containers = {} , boxes = {} ,      textboxes = {},     icons = {} ,
+                    assetOptions={ optionCount = 0,},   iconBarItems = {},  tabs  = {},
+                }
 
 function ryseGui.load(displayWidth,displayHeight)
+    ryseGui.containers = {}     ryseGui.boxes = {}  ryseGui.textboxes = {}
+    ryseGui.icons={}            ryseGui.assetOptions ={optionCount = 0,}
+    ryseGui.iconBarItems = {}   ryseGui.tabs = {}
 
-    ryseGui.containers = {}
-    ryseGui.boxes = {}
-    ryseGui.textboxes = {}
-    ryseGui.icons={}
-    ryseGui.assetOptions ={optionCount = 0,}
-    ryseGui.menuItems = {}
-    ryseGui.iconBarItems = {}
-
-    --Create MenuBar (MenuBar Olusturma)
-    table.insert(ryseGui.containers, ui.createContainer(
-            {
-                x = 0,
-                y= 0, 
-                width = displayWidth,
-                height = 25,
-                padding_right = 0,
-                padding_left = 0,
-                padding_top = 0 ,
-                padding_bottom = 0,
-                bg_color = {0.15,0.15,0.15},
-                name  = "menuBar"
-            }
-        )
-    )
-    
    -- Create IconBar (IconBar Olusturma)
     table.insert(ryseGui.containers, ui.createContainer(
             {
@@ -113,6 +81,9 @@ function ryseGui.load(displayWidth,displayHeight)
             }
         )
     )
+
+  -- Create Tabs 
+
 
     --Create Inspector TitleBox
     table.insert(ryseGui.boxes, ui.createBox(
@@ -721,259 +692,7 @@ table.insert(ryseGui.assetOptions,newOption)
 )
 table.insert(ryseGui.assetOptions,newOption)
 
---Create Menu 1 + 
-table.insert(ryseGui.menuItems, ui.createMenu(
-            {
-                x = 0,
-                y = 0,
-                width = 60,
-                height = 25,
-                name = "File",
-                submenus= {
-                     {name = "New Project",shortcut = "CTRL+N"},
-                     {name = "Open Project",shortcut = "CTRL+O"},
-                     {name = "Import Project",shortcut = nil},
-                     {name = "Recent Project",shortcut = nil},
-                     {name = "Save Project",shortcut = "CTRL+S"},
-                     {name = "Save Project As",shortcut = "CTRL+SHIFT+S"},
-                     {name = "Export Project",shortcut = nil},
-                     {name = "New IDE",shortcut = nil},
-                     {name = "Preferences",shortcut = "CTRL+SHIFT+P"},
-                     {name = "Exit",shortcut = nil},
-                },
-                menuFont = love.graphics.newFont(14),
-                submenuFont = love.graphics.newFont(12),
-                open = false,
-                disabled = false,
-                hovered = false
 
-
-            }
-        )
-    )
---Create Menu 2 + 
-    table.insert(ryseGui.menuItems, ui.createMenu(
-        {
-            x = 60,
-            y = 0,
-            width = 60,
-            height = 25,
-            name = "Edit",
-            submenus= {
-                 {name = "Undo",shortcut = "CTRL+Z"},
-                 {name = "Redo",shortcut = "CTRL+Y"},
-                 {name = "Search & Replace",shortcut = "CTRL+SHIFT+F"},
-            },
-            menuFont = love.graphics.newFont(14),
-            submenuFont = love.graphics.newFont(12),
-            open = false,
-            disabled = false,
-            hovered = false
-
-
-        }
-    )
-)
-
---Create Menu 3 + 
-table.insert(ryseGui.menuItems, ui.createMenu(
-    {
-        x = 120,
-        y = 0,
-        width = 60,
-        height = 25,
-        name = "Build",
-        submenus= {
-             {name = "Run",shortcut = "F5"},
-             {name = "Debug",shortcut = "F6"},
-             {name = "Re-Run",shortcut = nil },
-             {name = "Clean",shortcut = "CTRL+F7"},
-             {name = "Clean Code ",shortcut = nil},
-             {name = "Clean Graphics",shortcut = nil },
-             {name = "Clean Audio",shortcut = nil},
-             {name = "Create Executable",shortcut = "CTRL+F8"},
-             {name = "Create Executable and Launch",shortcut = nil}
-             
-        },
-        menuFont = love.graphics.newFont(14),
-        submenuFont = love.graphics.newFont(12),
-        open = false,
-        disabled = false,
-        hovered = false
-
-
-    }
-)
-)
-
---Create Menu 4 + 
-table.insert(ryseGui.menuItems, ui.createMenu(
-    {
-        x = 180,
-        y = 0,
-        width = 90,
-        height = 25,
-        name = "Windows",
-        submenus= {
-             {name = "Asset Browser",shortcut = nil},
-             {name = "Output",shortcut = nil},
-             {name = "Search Result",shortcut = nil },
-             {name = "Source Control Output",shortcut = nil},
-             {name = "Breakpoints ",shortcut = nil},
-             {name = "Compile Errors",shortcut = nil },
-             {name = "Feather Messages",shortcut = nil},
-             {name = "Inspector",shortcut = nil},
-             {name = "Recent Windows",shortcut = nil},
-             {name = "IDE Environment Variables",shortcut = nil},
-             {name = "Project Tool Output",shortcut = nil},
-
-             
-        },
-        menuFont = love.graphics.newFont(14),
-        submenuFont = love.graphics.newFont(12),
-        open = false,
-        disabled = false,
-        hovered = false
-
-
-    }
-)
-)
-
---Create Menu 5 + 
-table.insert(ryseGui.menuItems, ui.createMenu(
-    {
-        x = 270,
-        y = 0,
-        width = 60,
-        height = 25,
-        name = "Tools",
-        submenus= {
-             {name = "Texture Groups",shortcut = nil},
-             {name = "Audio Groups",shortcut = nil},
-             {name = "Sound Mixer",shortcut = nil },
-        },
-        menuFont = love.graphics.newFont(14),
-        submenuFont = love.graphics.newFont(12),
-        open = false,
-        disabled = false,
-        hovered = false
-
-
-    }
-)
-)
-
---Create Menu 6 + 
-table.insert(ryseGui.menuItems, ui.createMenu(
-    {
-        x = 330,
-        y = 0,
-        width = 110,
-        height = 25,
-        name = "MarketPlace",
-        submenus= nil , 
-        menuFont = love.graphics.newFont(14),
-        submenuFont = love.graphics.newFont(12),
-        open = false,
-        disabled = true,
-        hovered = false
-
-
-    }
-)
-)
-
-
---Create Menu 7 + 
-table.insert(ryseGui.menuItems, ui.createMenu(
-    {
-        x = 440,
-        y = 0,
-        width = 80,
-        height = 25,
-        name = "Layouts",
-        submenus= {
-             {name = "Save Layout",shortcut = nil},
-             {name = "Load Layout",shortcut = nil},
-             {name = "Reset Layout",shortcut = nil },
-             {name = "Show All Windows",shortcut = nil },
-             {name = "Close All Windows",shortcut = nil },
-
-        },
-        menuFont = love.graphics.newFont(14),
-        submenuFont = love.graphics.newFont(12),
-        open = false,
-        disabled = false,
-        hovered = false
-
-    }
-)
-)
-
---Create Menu 8 + 
-table.insert(ryseGui.menuItems, ui.createMenu(
-    {
-        x = 520,
-        y = 0,
-        width = 60,
-        height = 25,
-        name = "Help",
-        submenus= {
-             {name = "Open Manual",shortcut = "F1"},
-             {name = "Knowledge Base",shortcut = nil},
-             {name = "Contact Us",shortcut = nil },
-             {name = "Upload a Bug/Ticket Sample",shortcut = nil },
-             {name = "Report a RyseEngine Bug",shortcut = nil },
-             {name = "Open Log in Explorer",shortcut = nil },
-             {name = "Releases Notes",shortcut = nil },
-             {name = "Required SDKs",shortcut = nil },
-             {name = "Open Project in Explorer",shortcut = nil },
-             {name = "Refresh System Fonts",shortcut = nil },
-             {name = "Licenses",shortcut = nil },
-             {name = "Check for Updates",shortcut = nil },
-             {name = "About",shortcut = nil },
-
-
-        },
-        menuFont = love.graphics.newFont(14),
-        submenuFont = love.graphics.newFont(12),
-        open = false,
-        disabled = false,
-        hovered = false
-
-    }
-)
-)
-
---Create Menu 9 + 
-table.insert(ryseGui.menuItems, ui.createMenu(
-    {
-        x = 580,
-        y = 0,
-        width = 125,
-        height = 25,
-        name = "Source Control",
-        submenus= {
-             {name = "Create Project Repository",shortcut = nil},
-             {name = "Clone Repository",shortcut = nil},
-             {name = "Commit Changes",shortcut = nil },
-             {name = "Push Changes",shortcut = nil },
-             {name = "Pull Changes",shortcut = nil },
-             {name = "View History",shortcut = nil },
-             {name = "Show Conflicts",shortcut = nil },
-
-
-        },
-        menuFont = love.graphics.newFont(14),
-        submenuFont = love.graphics.newFont(12),
-        open = false,
-        disabled = false,
-        hovered = false
-
-    }
-)
-)
 
 -- Create IconBar Items 1 ++
 table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
@@ -1331,61 +1050,27 @@ function ryseGui.draw(dw,dh)
     love.graphics.setColor(1,1,1)
     love.graphics.newFont(12)
     love.graphics.printf(ryseGui.assetOptions.optionCount.." Items",(dw*3.328 )/ 4, dh / 1.116,100)
-    
-
     for i, item in ipairs(ryseGui.iconBarItems) do
         if x >= item.x and x <= item.x + item.width and y>=item.y and y<= item.y + item.height  then
             item.hovered = not item.hovered
         end
     end
-
     for _, iconBarItem in ipairs(ryseGui.iconBarItems) do
         iconBarItem:draw() 
     end
-
-
-    if buttonClicked then
-        for i,item in ipairs(ryseGui.menuItems) do
-        
-            if not item.disabled and mouseClickedX >= item.x and mouseClickedX <= item.x + item.width 
-            and mouseClickedY>= item.y and mouseClickedY<= item.y + item.height then
-                item.open = not item.open
-            end
-        end
-    end
-    
-
-    for i, item in ipairs(ryseGui.menuItems) do
-        if x >= item.x and x <= item.x + item.width and y>=item.y and y<= item.y + item.height  then
-            item.hovered = not item.hovered
-        end
-    end
-
-    for _, menuitem in ipairs(ryseGui.menuItems) do
-        menuitem:draw() -- Her container'ın draw fonksiyonunu çağır
-    end
    
-
-
 end
 
 function ryseGui.update()
-   
-   
-    
 end
 
-
 function ryseGui.mousepressed(x,y,button)
-    
     if button == 1 then        
         buttonClicked = not buttonClicked
         mouseClickedX = x 
         mouseClickedY = y
     end
 end
-
-
 return ryseGui 
 
 
