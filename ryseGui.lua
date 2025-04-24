@@ -1,30 +1,24 @@
 ui = require("ui")
 local ryseGui = {
-                    containers = {} , boxes = {} ,      textboxes = {},     icons = {} ,
-                    assetOptions={ optionCount = 0,},   iconBarItems = {},  tabs  = {},
-                }
+    containers = {},
+    boxes = {},
+    textboxes = {},
+    icons = {},
+    assetOptions={
+        optionCount = 0,
+    },
+    tabs = {},
+}
 
 function ryseGui.load(displayWidth,displayHeight)
-    ryseGui.containers = {}     ryseGui.boxes = {}  ryseGui.textboxes = {}
-    ryseGui.icons={}            ryseGui.assetOptions ={optionCount = 0,}
-    ryseGui.iconBarItems = {}   ryseGui.tabs = {}
+    ryseGui.containers = {}
+    ryseGui.boxes = {}
+    ryseGui.textboxes = {}
+    ryseGui.icons={}
+    ryseGui.assetOptions ={optionCount = 0,}
+    ryseGui.tabs = {}
 
-   -- Create IconBar (IconBar Olusturma)
-    table.insert(ryseGui.containers, ui.createContainer(
-            {
-                x = 0,
-                y= 25, 
-                width = displayWidth,
-                height = 40,
-                padding_right = 0,
-                padding_left = 0,
-                padding_top = 2 ,
-                padding_bottom = 0,
-                bg_color = {0.15,0.15,0.15},
-                name  = "iconBar"
-            }
-        )
-    )
+  
     
     --Create WorkSpace Container (WorkSpace Container Olusturma)
    table.insert(ryseGui.containers, ui.createContainer(
@@ -82,9 +76,7 @@ function ryseGui.load(displayWidth,displayHeight)
         )
     )
 
-  -- Create Tabs 
-
-
+    
     --Create Inspector TitleBox
     table.insert(ryseGui.boxes, ui.createBox(
             {
@@ -694,331 +686,6 @@ table.insert(ryseGui.assetOptions,newOption)
 
 
 
--- Create IconBar Items 1 ++
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 1,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/home_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/home_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 2 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 81,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/file_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/file_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 3 + 
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 112,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/assetFolder_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/assetFolder_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 4 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 143,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/save_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/save_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 5 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 223,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/importTop_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/importTop_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 6 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 254,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/importRight_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/importRight_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 7 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 334,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/bug_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/bug_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 8 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 365,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/run_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/run_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 9 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 396,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/stop_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/stop_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 10 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 427,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/paint_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/paint_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 11 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 507,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/setting_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/setting_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 12  +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 538,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/question_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/question_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 13 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 618,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/zoomOut_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/zoomOut_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 14 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 649,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/zoomMatch_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/zoomMatch_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 15 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 680,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/zoomIn_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/zoomIn_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 16  +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 711,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/dropdown_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/dropdown_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 17 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = 791,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/laptop_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/laptop_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 18 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = displayWidth - 61,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/user_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/user_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
--- Create IconBar Items 19 +
-table.insert(ryseGui.iconBarItems, ui.createIconBarItems(
-        {   
-            x = displayWidth - 30,
-            y = 34 ,
-            width = 30,
-            height = 28,
-            bgColor = {0.3,0.3,0.3},
-            alpha = 0.3,
-            icon_off = love.graphics.newImage("img/icon/message_off.png"),
-            icon_onn = love.graphics.newImage("img/icon/message_onn.png"),
-            hovered = false,
-
-        }   
-    )
-)
-
-
-
 end
 
 local mouseClicked = false
@@ -1029,40 +696,32 @@ function ryseGui.draw(dw,dh)
     local x,y = love.mouse.getPosition()
 
     for _, container in ipairs(ryseGui.containers) do
-        container:draw() -- Her container'ın draw fonksiyonunu çağır
+        container:draw()
     end
     
     for _, box in ipairs(ryseGui.boxes) do
-        box:draw() -- Her container'ın draw fonksiyonunu çağır
+        box:draw() 
     end
 
     for _, textBox in ipairs(ryseGui.textboxes) do
-        textBox:draw() -- Her container'ın draw fonksiyonunu çağır
+        textBox:draw() 
     end
 
     for _, icon in ipairs(ryseGui.icons) do
-        icon:draw() -- Her container'ın draw fonksiyonunu çağır
+        icon:draw() 
     end
 
     for _, assetOption in ipairs(ryseGui.assetOptions) do
-        assetOption:draw() -- Her container'ın draw fonksiyonunu çağır
+        assetOption:draw() 
     end
     love.graphics.setColor(1,1,1)
     love.graphics.newFont(12)
     love.graphics.printf(ryseGui.assetOptions.optionCount.." Items",(dw*3.328 )/ 4, dh / 1.116,100)
-    for i, item in ipairs(ryseGui.iconBarItems) do
-        if x >= item.x and x <= item.x + item.width and y>=item.y and y<= item.y + item.height  then
-            item.hovered = not item.hovered
-        end
-    end
-    for _, iconBarItem in ipairs(ryseGui.iconBarItems) do
-        iconBarItem:draw() 
-    end
-   
+    
 end
 
-function ryseGui.update()
-end
+function ryseGui.update()   end
+
 
 function ryseGui.mousepressed(x,y,button)
     if button == 1 then        
@@ -1071,6 +730,8 @@ function ryseGui.mousepressed(x,y,button)
         mouseClickedY = y
     end
 end
+
+
 return ryseGui 
 
 
