@@ -128,47 +128,6 @@ function ui.createTextBox(params)
 
 end
 
-function ui.createIcon(params) 
-    params = params or {}
-
-    return{
-       --Variables / Attributes
-        x = params.x + params.padding_left, 
-        y = params.y + params.padding_top,
-        width = params.width - params.padding_right,
-        height = params.height - params.padding_bottom, 
-        name = params.name or "undefined",
-        image_off = params.image_off,
-        image_onn = params.image_onn,
-        isActive = params.isActive,
-        rotationAngle = params.rotationAngle or 0,
-       --- Function 
-        draw = function(self)
-            --love.graphics.setScissor(self.x,self.y,self.width,self.height)
-            love.graphics.setColor(1, 1, 1)
-            if self.isActive then
-                -- Resmi container boyutlarına ölçeklendir
-                local imgWidth, imgHeight = self.image_onn:getDimensions()
-                local scaleX = (self.width ) / (imgWidth + 80)
-                local scaleY = (self.height) / (imgHeight + 80)
-                love.graphics.draw(self.image_onn, self.x, self.y, self.rotationAngle, scaleX, scaleY)
-                
-            else
-                -- Resmi container boyutlarına ölçeklendir
-                local imgWidth, imgHeight = self.image_off:getDimensions()
-                local scaleX = (self.width ) / (imgWidth + 80)
-                local scaleY = (self.height) / (imgHeight + 80)
-                love.graphics.draw(self.image_off, self.x, self.y, self.rotationAngle, scaleX, scaleY)
-            end
-           
-           
-           --love.graphics.setScissor()
-       end
-   }
-   
-end
-
-
 function ui.createOption(optionCount,params) 
     params = params or {}
     local optionCount = optionCount + 1
@@ -286,7 +245,7 @@ function ui.createMenu(params)
 
 end
 
-function ui.createIconBarItems(params)
+function ui.createIcon(params)
 
     params = params or {}
 
